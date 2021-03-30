@@ -1,5 +1,5 @@
 FROM openjdk:8-jre-alpine
-MAINTAINER bobo <bobo@spring2go.com>
+MAINTAINER Fish Yu <lei.yu10@pacteraedge.com>
 
 # Add the app itself
 ARG JAR_FILE

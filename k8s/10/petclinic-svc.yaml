@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: petclinic
+      labels:
+        app: petclinic
+    spec:
+      containers:
+        - name: petclinic
+          image: yulei058/spring-petclinic:1.0.0.RELEASE
+          envFrom:
+            - configMapRef:
+                name: petclinic-config-v2
+  selector:
+    matchLabels:
+      app: petclinic
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic
+spec:
+  ports:
+    - port: 8080
+      name: http
+      targetPort: 8080
+      nodePort: 31080
+  type: NodePort
+  selector:
+    app: petclinic

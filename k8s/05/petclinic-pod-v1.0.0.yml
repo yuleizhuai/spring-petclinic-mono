@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: petclinic-v1.0.0
+  labels:
+    app: petclinic
+    version: v1.0.0
+spec:
+  containers:
+    - name: petclinic
+      image: yulei058/spring-petclinic:1.0.0.RELEASE
+      imagePullPolicy: Always

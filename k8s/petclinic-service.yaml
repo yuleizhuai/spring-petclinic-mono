@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic
+spec:
+  ports:
+    - port: 8080 # Service 本地的端口 8080
+      name: http
+      targetPort: 8080 # 对接的 Pod 的端口 8080
+      nodePort: 31080 # 本机 node 上暴露端口 31080，让本地可以访问到这个 Service
+  selector: # 路由选择
+    app: petclinic
+  type: NodePort
